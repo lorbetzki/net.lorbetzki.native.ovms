@@ -1,0 +1,12 @@
+{
+    "id": "{4EE263B9-1F3A-78D9-7FCD-2605AE42220B}",
+    "name": "OVMS native",
+    "author": "Kristian Lorbetzki",
+    "url": "",
+    "compatibility": {
+        "version": "6.3"
+    },
+    "version": "1.0",
+    "build": 0,
+    "date": 0
+}

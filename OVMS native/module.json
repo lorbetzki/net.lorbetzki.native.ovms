@@ -1,0 +1,12 @@
+{
+    "id": "{D8B35502-1B61-A6C7-25B5-0BC775116AC6}",
+    "name": "OVMS native",
+    "type": 3,
+    "vendor": "Openvehicles",
+    "aliases": ["OVMS native", "OVMS" ],
+    "parentRequirements": [],
+    "childRequirements": [],
+    "implemented": [],
+    "prefix": "OVMSNAT",
+    "url": "https://github.com/lorbetzki/net.lorbetzki.native.ovms"
+}

@@ -1,0 +1,112 @@
+{
+    "elements": [
+        { 
+            "type": "Label",
+            "caption": "You found all inforamtion on the OVMS-Module WEBui under Config -> Server V2 (MP) configuration"
+        },
+        { 
+            "type": "Label",
+            "caption": "please type in your Vehicle ID and Username."
+        },
+        { 
+            "type": "ValidationTextBox", 
+            "name": "VehicleID", 
+            "caption": "Vehicle ID" 
+        },
+        { 
+            "type": "ValidationTextBox", 
+            "name": "UserName", 
+            "caption": "Username" 
+        },
+        { 
+            "type": "PasswordTextBox", 
+            "name": "Password", 
+            "caption": "Password" 
+        },
+        { 
+            "type": "Label",
+            "caption": "select Server or type in your own server Data. Please note that only ssl connections are allowed!"
+        },
+        { "type": "Select", "name": "SelectServer", "caption": "Server", "onChange": "IPS_RequestAction($id, 'unHideServerURL', $SelectServer); ",
+            "options": [
+                { "caption": "ovms.dexters-web.de", "value": "ovms.dexters-web.de" },
+                { "caption": "api.openvehicles.com", "value": "api.openvehicles.com" },
+                { "caption": "another Server", "value": "another Server"}
+            ]
+        },
+        { 
+            "type": "ValidationTextBox", 
+            "name": "OwnServerURL", 
+            "visible": false,
+            "caption": "type in the full hostname of the Server"
+        },
+        {
+            "type": "NumberSpinner",
+            "name": "UpdateDataInterval",
+            "minimum": 0,
+            "caption": "Intervall in sec. , 0 to deactive automatic"
+        },
+        { 
+            "type": "Label",
+            "caption": "select which variables you want to create."
+        },
+        { 
+            "type": "CheckBox", 
+            "name": "status", 
+            "caption": "Create variables for status informations from vehicle"       
+        },
+        { 
+            "type": "CheckBox", 
+            "name": "vehicle", 
+            "caption": "Create variables for vehicle informations"       
+        },
+        { 
+            "type": "CheckBox", 
+            "name": "tpms", 
+            "caption": "Create variables for TPMS (tire, pressure) from vehicle"       
+        },
+        { 
+            "type": "CheckBox", 
+            "name": "location", 
+            "caption": "Create variables for the location from vehicle"       
+        },
+        { 
+            "type": "CheckBox", 
+            "name": "charge", 
+            "caption": "Create variables for charging information from vehicle"       
+        }
+    ],
+    "actions": [
+        {
+            "type": "Button",
+            "caption": "Update manually",
+            "name": "UpdateData",
+            "onClick": "print_r(OVMSNAT_UpdateData($id));",
+            "visible": true
+        },
+        {
+            "type": "Button",
+            "caption": "get status",
+            "name": "getstatus",
+            "onClick": "print_r(OVMSNAT_GetData($id, 'status', NULL));",
+            "visible": true
+        }
+     ],
+    "status": [
+        {  
+            "code": 102, 
+            "icon": "active", 
+            "caption": "instance is active" 
+        },
+        {  
+            "code": 104, 
+            "icon": "inactive", 
+            "caption": "timer deactivated!" 
+        },
+        {  
+            "code": 200, 
+            "icon": "error", 
+            "caption": "please enter username, password and vehicle id" 
+        }
+    ]
+}
