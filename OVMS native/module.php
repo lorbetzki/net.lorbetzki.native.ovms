@@ -22,6 +22,7 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			$this->RegisterPropertyBoolean('tpms', 'false');
 			$this->RegisterPropertyBoolean('location', 'false');
 			$this->RegisterPropertyBoolean('charge', 'false');
+			$this->RegisterPropertyBoolean('unknownvariable', 'false');
 
 			$this->RegisterTimer('OVMSNAT_UpdateData', 0, 'OVMSNAT_UpdateData($_IPS[\'TARGET\']);');
 			$this->RegisterPropertyInteger('UpdateDataInterval', 60);
@@ -219,6 +220,8 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 
 		public function UpdateData()
 		{
+			include __DIR__ . '/../libs/var_and_profiles.php';
+
 			$SessionID = $this->CookieHandle('get');
 
 			if ($this->ReadPropertyBoolean('status'))
@@ -245,28 +248,31 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			{
 				$StatusData['charge'] = $this->GetData('charge', $SessionID);
 				$this->SendDebug(__FUNCTION__, 'UpdateData(): get charge informations...', 0);	
-			} 
+			}  
 			
 			$SessionID = $this->CookieHandle('delete',$SessionID );
 
 			if (!empty($StatusData))
 			{
+				include __DIR__ . '/../libs/var_and_profiles.php';
+
 				foreach($StatusData as $option=>$value)
 					{
 
 						foreach($value as $var=>$result)
 						{
 							$IdentName = $option."_".$var;
-							if (!$this->GetIDForIdent($IdentName))
-							{
-								echo "$IdentName";
-								$this->MaintainVariable($IdentName, $IdentName." unknown!",3, "",0, true);
-							}
-							
-							if ($IdentName == "status_odometer"){ $result = $result / 10;}
-							
-							$this->SetValue($IdentName,$result);
 
+							if (!(in_array($IdentName,$blacklist)))																					
+							{
+								if (((!$this->GetIDForIdent($IdentName)) AND $this->ReadPropertyBoolean('unknownvariable') == true))
+								{
+									$this->MaintainVariable($IdentName, $IdentName." unknown!",3, "",0, $this->ReadPropertyBoolean('unknownvariable') == true);
+								}
+
+								if ($IdentName == "status_odometer"){ $result = $result / 10;}
+								$this->SetValue($IdentName,$result);
+							}
 						}
 					}
 			}

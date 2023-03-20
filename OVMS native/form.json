@@ -2,7 +2,7 @@
     "elements": [
         { 
             "type": "Label",
-            "caption": "You found all inforamtion on the OVMS-Module WEBui under Config -> Server V2 (MP) configuration"
+            "caption": "You found all information on the OVMS-Module WEBui under Config -> Server V2 (MP) configuration"
         },
         { 
             "type": "Label",
@@ -16,7 +16,7 @@
         { 
             "type": "ValidationTextBox", 
             "name": "UserName", 
-            "caption": "Username" 
+            "caption": "please type in your Vehicle ID and Username." 
         },
         { 
             "type": "PasswordTextBox", 
@@ -48,7 +48,7 @@
         },
         { 
             "type": "Label",
-            "caption": "select which variables you want to create."
+            "caption": "select which types of variables you want to create."
         },
         { 
             "type": "CheckBox", 
@@ -74,6 +74,11 @@
             "type": "CheckBox", 
             "name": "charge", 
             "caption": "Create variables for charging information from vehicle"       
+        },
+        { 
+            "type": "CheckBox", 
+            "name": "unknownvariable", 
+            "caption": "Create unknown variables"       
         }
     ],
     "actions": [
@@ -82,13 +87,6 @@
             "caption": "Update manually",
             "name": "UpdateData",
             "onClick": "print_r(OVMSNAT_UpdateData($id));",
-            "visible": true
-        },
-        {
-            "type": "Button",
-            "caption": "get status",
-            "name": "getstatus",
-            "onClick": "print_r(OVMSNAT_GetData($id, 'status', NULL));",
             "visible": true
         }
      ],
