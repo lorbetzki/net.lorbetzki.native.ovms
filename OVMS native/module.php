@@ -27,12 +27,16 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			$this->RegisterTimer('OVMSNAT_UpdateData', 0, 'OVMSNAT_UpdateData($_IPS[\'TARGET\']);');
 			$this->RegisterPropertyInteger('UpdateDataInterval', 60);
 
-			$this->RegisterProfileFloat("OVMS_AH", "", "", " Ah", 0, 0, 0, 0);
-			$this->RegisterProfileFloat('OVMS_KM', '', '', ' km', 0, 0, 0, 0);
-			$this->RegisterProfileFloat('OVMS_LEVEL', '', '', ' %', 0, 0, 0, 0);
+			$this->RegisterProfileFloat("OVMS_AH", "", "", " Ah", 0, 0, 0, 1);
+			$this->RegisterProfileInteger("OVMS_VOLT", "", "", " V", 0, 0, 0, 0);
+			$this->RegisterProfileInteger("OVMS_KWH", "", "", " kWh", 0, 0, 0, 0);
+			$this->RegisterProfileFloat("OVMS_KWHF", "", "", " kWh", 0, 0, 0, 1);
+			$this->RegisterProfileFloat('OVMS_KM', '', '', ' km', 0, 0, 0, 1);
+			$this->RegisterProfileFloat('OVMS_KMH', '', '', ' kmh', 0, 0, 0, 1);
+			$this->RegisterProfileFloat('OVMS_LEVEL', '', '', ' %', 0, 0, 0, 1);
 			$this->RegisterProfileBooleanEx('OVMS_YESNO', '', '', '', [
-				[false, 'no',  '', 0xFF0000],
-				[true, 'yes',  '', 0x00FF00]
+				[false, $this->Translate('no'),  '', 0xFF0000],
+				[true, $this->Translate('yes'),  '', 0x00FF00]
 			]);
 			$this->RegisterProfileFloat('OVMS_PSI', '', '', ' psi', 0, 0, 0, 1);
 
@@ -277,6 +281,7 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 								}
 
 								if ($IdentName == "status_odometer"){ $result = $result / 10;}
+								if ($IdentName == "charge_chargekwh"){ $result = $result / 10;}								
 								$this->SetValue($IdentName,$result);
 							}
 						}
