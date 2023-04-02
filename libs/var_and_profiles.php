@@ -19,8 +19,8 @@ $this->MaintainVariable('status_idealrange', $this->Translate('idealrange'),2, "
 $this->MaintainVariable('status_idealrange_max', $this->Translate('idealrange_max'),2, "OVMS_KM",116, $this->ReadPropertyBoolean('status') == true);
 $this->MaintainVariable('status_m_msgage_d', $this->Translate('age of last doors/env (D) messages received'),1, "~UnixTimestampTime",117, $this->ReadPropertyBoolean('status') == true);
 $this->MaintainVariable('status_m_msgage_s', $this->Translate('age of last status (S) message received'),1, "~UnixTimestampTime",118, $this->ReadPropertyBoolean('status') == true);
-$this->MaintainVariable('status_m_msgtime_d', $this->Translate('last doors/env (D) messages received'),3, "",119, $this->ReadPropertyBoolean('status') == true);
-$this->MaintainVariable('status_m_msgtime_s', $this->Translate('last status (S) message received'),3, "",120, $this->ReadPropertyBoolean('status') == true);
+$this->MaintainVariable('status_m_msgtime_d', $this->Translate('last doors/env (D) messages received'),1, "~UnixTimestampTime",119, $this->ReadPropertyBoolean('status') == true);
+$this->MaintainVariable('status_m_msgtime_s', $this->Translate('last status (S) message received'),1, "~UnixTimestampTime",120, $this->ReadPropertyBoolean('status') == true);
 $this->MaintainVariable('status_mode', $this->Translate('mode'),3, "",121, $this->ReadPropertyBoolean('status') == true);
 $this->MaintainVariable('status_odometer', $this->Translate('odometer'),2, "OVMS_KM",122, $this->ReadPropertyBoolean('status') == true);
 $this->MaintainVariable('status_parkingtimer', $this->Translate('parking timer'),1, "~UnixTimestampTime",123, $this->ReadPropertyBoolean('status') == true);
@@ -42,7 +42,7 @@ $this->MaintainVariable('status_vehicle12v_ref', $this->Translate('vehicle 12v r
 
 # vehicle
 $this->MaintainVariable('vehicle_m_msgage_s', $this->Translate('age of last status (S) message received'),1, "~UnixTimestampTime",200, $this->ReadPropertyBoolean('vehicle') == true);
-$this->MaintainVariable('vehicle_m_msgtime_s', $this->Translate('last status (S) message received'),3, "",201, $this->ReadPropertyBoolean('vehicle') == true);
+$this->MaintainVariable('vehicle_m_msgtime_s', $this->Translate('last status (S) message received'),1, "~UnixTimestampTime",201, $this->ReadPropertyBoolean('vehicle') == true);
 $this->MaintainVariable('vehicle_v_apps_connected', $this->Translate('number of apps currently connected'),1, "",202, $this->ReadPropertyBoolean('vehicle') == true);
 $this->MaintainVariable('vehicle_v_btcs_connected', $this->Translate('number of batch clients currently connected'),1, "",203, $this->ReadPropertyBoolean('vehicle') == true);
 $this->MaintainVariable('vehicle_v_first_peer', $this->Translate('the API connection is the first peer connecting to the car'),0, "OVMS_YESNO",204, $this->ReadPropertyBoolean('vehicle') == true);
@@ -54,7 +54,7 @@ $this->MaintainVariable('tpms_fl_temperature', $this->Translate('temperature fro
 $this->MaintainVariable('tpms_fr_pressure', $this->Translate('pressure front right'),2, "OVMS_PSI",212, $this->ReadPropertyBoolean('tpms') == true);
 $this->MaintainVariable('tpms_fr_temperature', $this->Translate('temperature front right'),2, "~Temperature",213, $this->ReadPropertyBoolean('tpms') == true);
 $this->MaintainVariable('tpms_m_msgage_w', $this->Translate('age of last tire message received'),1, "",214, $this->ReadPropertyBoolean('tpms') == true);
-$this->MaintainVariable('tpms_m_msgtime_w', $this->Translate('last tire essage received'),3, "",215, $this->ReadPropertyBoolean('tpms') == true);
+$this->MaintainVariable('tpms_m_msgtime_w', $this->Translate('last tire essage received'),1, "~UnixTimestampTime",215, $this->ReadPropertyBoolean('tpms') == true);
 $this->MaintainVariable('tpms_rl_pressure', $this->Translate('pressure rear left'),2, "OVMS_PSI",216, $this->ReadPropertyBoolean('tpms') == true);
 $this->MaintainVariable('tpms_rl_temperature', $this->Translate('temperature rear left'),2, "~Temperature",217, $this->ReadPropertyBoolean('tpms') == true);
 $this->MaintainVariable('tpms_rr_pressure', $this->Translate('pressure rear right'),2, "OVMS_PSI",218, $this->ReadPropertyBoolean('tpms') == true);
@@ -72,7 +72,7 @@ $this->MaintainVariable('location_invpower', $this->Translate('inverter power'),
 $this->MaintainVariable('location_latitude', $this->Translate('latitude'),2, "",238, $this->ReadPropertyBoolean('location') == true);
 $this->MaintainVariable('location_longitude', $this->Translate('longitude'),2, "",239, $this->ReadPropertyBoolean('location') == true);
 $this->MaintainVariable('location_m_msgage_l', $this->Translate('age of last location (L) message received'),1, "~UnixTimestampTime",240, $this->ReadPropertyBoolean('location') == true);
-$this->MaintainVariable('location_m_msgtime_l', $this->Translate('last location (L) message received'),3, "",241, $this->ReadPropertyBoolean('location') == true);
+$this->MaintainVariable('location_m_msgtime_l', $this->Translate('last location (L) message received'),1, "~UnixTimestampTime",241, $this->ReadPropertyBoolean('location') == true);
 $this->MaintainVariable('location_power', $this->Translate('power'),2, "",242, $this->ReadPropertyBoolean('location') == true);
 $this->MaintainVariable('location_speed', $this->Translate('speed'),2, "OVMS_KMH",243, $this->ReadPropertyBoolean('location') == true);
 $this->MaintainVariable('location_tripmeter', $this->Translate('tripmeter'),2, "OVMS_KM",245, $this->ReadPropertyBoolean('location') == true);
@@ -109,8 +109,8 @@ $this->MaintainVariable('charge_cooldown_timelimit', $this->Translate('cooldown 
 $this->MaintainVariable('charge_linevoltage', $this->Translate('line voltage'),1, "OVMS_VOLT",284, $this->ReadPropertyBoolean('charge') == true);
 $this->MaintainVariable('charge_m_msgage_d', $this->Translate('age of last doors/env (D) messages received'),1, "~UnixTimestampTime",285, $this->ReadPropertyBoolean('charge') == true);
 $this->MaintainVariable('charge_m_msgage_s', $this->Translate('age of last status (S) message received'),1, "~UnixTimestampTime",286, $this->ReadPropertyBoolean('charge') == true);
-$this->MaintainVariable('charge_m_msgtime_d', $this->Translate('last doors/env (D) messages received'),3, "",287, $this->ReadPropertyBoolean('charge') == true);
-$this->MaintainVariable('charge_m_msgtime_s', $this->Translate('last status (S) message received'),3, "",288, $this->ReadPropertyBoolean('charge') == true);
+$this->MaintainVariable('charge_m_msgtime_d', $this->Translate('last doors/env (D) messages received'),1, "~UnixTimestampTime",287, $this->ReadPropertyBoolean('charge') == true);
+$this->MaintainVariable('charge_m_msgtime_s', $this->Translate('last status (S) message received'),1, "~UnixTimestampTime",288, $this->ReadPropertyBoolean('charge') == true);
 
 $this->MaintainVariable('charge_temperature_ambient', $this->Translate('Ambient temperature'),2, "~Temperature",295, $this->ReadPropertyBoolean('charge') == true);
 $this->MaintainVariable('charge_temperature_battery', $this->Translate('Battery temperature'),2, "~Temperature",296, $this->ReadPropertyBoolean('charge') == true);

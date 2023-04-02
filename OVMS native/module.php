@@ -286,11 +286,20 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 								{
 									$this->MaintainVariable($IdentName, $IdentName." unknown!",3, "",0, $this->ReadPropertyBoolean('unknownvariable') == true);
 								}
-
+								//calculate some vars
 								if ($IdentName == "status_odometer"){ $result = $result / 10;}
 								if ($IdentName == "charge_chargekwh"){ $result = $result / 10;}	
-								
+								// or translate them
 								if ($IdentName == "status_chargestate"){ $result = $this->translate(''.$result.'');}
+								// or convert
+								if (($IdentName == "status_m_msgtime_d") OR 
+									($IdentName == "status_m_msgtime_s") OR 
+									($IdentName == "vehicle_m_msgtime_s") OR 
+									($IdentName == "tpms_m_msgtime_w") OR 
+									($IdentName == "location_m_msgtime_l") OR 
+									($IdentName == "charge_m_msgtime_d") OR 
+									($IdentName == "charge_m_msgtime_s") 
+								){ $result = strtotime($result);}
 								
 								$this->SetValue($IdentName,$result);
 							}
