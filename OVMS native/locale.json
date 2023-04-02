@@ -117,8 +117,10 @@
                 "please enter username, password and vehicle id": "Bitte tragen Sie Benutzername, Passwort und die Vehicle ID ein.",
                 "age of last tire message received":"Alter der zuletzt erhalten Nachrichten vom Reifensystem",
                 "last tire essage received": "zuletzt empfangenen Nachrichten vom Reifensystem",
-                "no":"nein",
-                "yes":"ja"
+                "no": "nein",
+                "yes": "ja",
+                "done": "fertig geladen",
+                "stopped": "gestoppt"
         }
     }
 }

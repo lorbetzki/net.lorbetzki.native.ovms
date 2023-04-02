@@ -7,7 +7,7 @@ $this->MaintainVariable('status_carawake', $this->Translate('car a wake'),0, "OV
 $this->MaintainVariable('status_carlocked', $this->Translate('car locked'),0, "OVMS_YESNO",104, $this->ReadPropertyBoolean('status') == true);
 $this->MaintainVariable('status_caron', $this->Translate('car on'),0, "OVMS_YESNO",105, $this->ReadPropertyBoolean('status') == true);
 $this->MaintainVariable('status_chargestate', $this->Translate('chargestate'),3, "",106, $this->ReadPropertyBoolean('status') == true);
-$this->MaintainVariable('status_charging', $this->Translate('charging'),1, "",107, $this->ReadPropertyBoolean('status') == true);
+$this->MaintainVariable('status_charging', $this->Translate('charging'),1, "OVMS_CHARGING",107, $this->ReadPropertyBoolean('status') == true);
 $this->MaintainVariable('status_charging_12v', $this->Translate('charging 12v'),0, "OVMS_YESNO",108, $this->ReadPropertyBoolean('status') == true);
 $this->MaintainVariable('status_cooldown_active', $this->Translate('cooldown_active'),1, "",109, $this->ReadPropertyBoolean('status') == true);
 $this->MaintainVariable('status_cp_dooropen', $this->Translate('charge port door open'),0, "OVMS_YESNO",110, $this->ReadPropertyBoolean('status') == true);

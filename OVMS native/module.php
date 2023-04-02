@@ -38,7 +38,14 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 				[false, $this->Translate('no'),  '', 0xFF0000],
 				[true, $this->Translate('yes'),  '', 0x00FF00]
 			]);
+
 			$this->RegisterProfileFloat('OVMS_PSI', '', '', ' psi', 0, 0, 0, 1);
+
+			$this->RegisterProfileIntegerEx("OVMS_CHARGING", "", "", "", [
+				['0', $this->Translate('stopped'),  '', 0xFFFF00],
+				['16', $this->Translate('charging'),  '', 0x00FF00]
+			], 0, 0);
+
 
 		}
 
@@ -281,7 +288,10 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 								}
 
 								if ($IdentName == "status_odometer"){ $result = $result / 10;}
-								if ($IdentName == "charge_chargekwh"){ $result = $result / 10;}								
+								if ($IdentName == "charge_chargekwh"){ $result = $result / 10;}	
+								
+								if ($IdentName == "status_chargestate"){ $result = $this->translate(''.$result.'');}
+								
 								$this->SetValue($IdentName,$result);
 							}
 						}
