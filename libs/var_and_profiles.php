@@ -54,7 +54,7 @@ $this->MaintainVariable('tpms_fl_temperature', $this->Translate('temperature fro
 $this->MaintainVariable('tpms_fr_pressure', $this->Translate('pressure front right'),2, "OVMS_PSI",212, $this->ReadPropertyBoolean('tpms') == true);
 $this->MaintainVariable('tpms_fr_temperature', $this->Translate('temperature front right'),2, "~Temperature",213, $this->ReadPropertyBoolean('tpms') == true);
 $this->MaintainVariable('tpms_m_msgage_w', $this->Translate('age of last tire message received'),1, "",214, $this->ReadPropertyBoolean('tpms') == true);
-$this->MaintainVariable('tpms_m_msgtime_w', $this->Translate('last tire essage received'),1, "~UnixTimestampTime",215, $this->ReadPropertyBoolean('tpms') == true);
+$this->MaintainVariable('tpms_m_msgtime_w', $this->Translate('last tire message received'),1, "~UnixTimestampTime",215, $this->ReadPropertyBoolean('tpms') == true);
 $this->MaintainVariable('tpms_rl_pressure', $this->Translate('pressure rear left'),2, "OVMS_PSI",216, $this->ReadPropertyBoolean('tpms') == true);
 $this->MaintainVariable('tpms_rl_temperature', $this->Translate('temperature rear left'),2, "~Temperature",217, $this->ReadPropertyBoolean('tpms') == true);
 $this->MaintainVariable('tpms_rr_pressure', $this->Translate('pressure rear right'),2, "OVMS_PSI",218, $this->ReadPropertyBoolean('tpms') == true);

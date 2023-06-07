@@ -98,7 +98,7 @@
                 "cooldown timelimit": "Klimatisierung Zeitlimit", 
                 "line voltage": "Leitungsspannung",
                 "You found all information on the OVMS-Module WEBui under Config -> Server V2 (MP) configuration": "Die notwendigen Infos sind im OVMS-Module WEBui unter Config -> Server V2 (MP) configuration zu finden",
-                "please type in your Vehicle ID and Username.":"bitte geben Sie Ihre Vehicle ID und den Benuzernamen ein.",
+                "please type in your Username, password an Vehicle ID.":"bitte geben Sie Ihren Benuzernamen, Passwort und die Vehicle ID ein.",
                 "UserName.":"Benutzername",
                 "Password": "Passwort",
                 "select Server or type in your own server Data. Please note that only ssl connections are allowed!":"bitte wählen Sie einen Server aus. Bitte beachten Sie, das bei einem eigenem Server ausschließlich SSL Verbindungen erlaubt sind.",
@@ -116,11 +116,12 @@
                 "timer deactivated!": "Timer deaktiviert!",
                 "please enter username, password and vehicle id": "Bitte tragen Sie Benutzername, Passwort und die Vehicle ID ein.",
                 "age of last tire message received":"Alter der zuletzt erhalten Nachrichten vom Reifensystem",
-                "last tire essage received": "zuletzt empfangenen Nachrichten vom Reifensystem",
+                "last tire message received": "zuletzt empfangenen Nachrichten vom Reifensystem",
                 "no": "nein",
                 "yes": "ja",
                 "done": "fertig geladen",
-                "stopped": "gestoppt"
+                "stopped": "gestoppt",
+                "another Server": "anderer oder eigener Server"
         }
     }
 }

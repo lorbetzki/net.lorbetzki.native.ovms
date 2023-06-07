@@ -6,7 +6,7 @@
         },
         { 
             "type": "Label",
-            "caption": "please type in your Vehicle ID and Username."
+            "caption": "please type in your Username, password an Vehicle ID."
         },
         { 
             "type": "ValidationTextBox", 
@@ -16,7 +16,7 @@
         { 
             "type": "ValidationTextBox", 
             "name": "UserName", 
-            "caption": "please type in your Vehicle ID and Username." 
+            "caption": "Username." 
         },
         { 
             "type": "PasswordTextBox", 
