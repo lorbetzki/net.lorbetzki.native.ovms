@@ -11,14 +11,20 @@
 6. [PHP-Befehlsreferenz](#7-php-befehlsreferenz)
 
 ### 1. Funktionsumfang
-das Modul hilft euch, bei vorhandem OVMS Modul, die Daten eures Fahrzeug über die klassische V.2 Schnittstelle auszulesen. Dabei können die beiden Standardserver oder auch ein eigener angegeben werden. Es stehen somit alle Metricen zur Verfügung die über die V.2 Schnittstelle übertragen werden. Es wird nur lesend auf die Schnittstelle zugegriffen, schreiben ist nicht möglich.
+
+Dies ist ein Symcon-Modul zur Protokollierung, Überwachung und Steuerung Ihres Fahrzeugs mittels OVMS.
+
+Das OVMS - open vehicle monitoring system - ist ein quelloffenes Fahrzeug-Fernüberwachungs-, Diagnose- und Steuerungssystem. Dabei sendet das OVMS Hardwaremodul jede Änderung, in einem einstellbaren Intervall, Werte, so genannte Metriken, wahlweise an den Server ovms.dexters-web.de, api.openvehicles.com oder an einen eigenen. Es ist jeweils eine Registrierung notwendig.
+
+Dieses Modul nutzt die V.2 API = MP, wenn euer OVMS Modul auch die V3 API beherrscht, solltet Ihr stattdessen das Modul [OVMS](https://github.com/lorbetzki/net.lorbetzki.ovms) verwenden, da dort auch schreibender Zugriff auf das OVMS Hardmodul möglich ist.
 
 Leider fehlen mir bei manchen Variablen die Übersetzung, schreibt mich gerne an.
 
 ### 2. Voraussetzungen
 
 - IP-Symcon ab Version 6.3
-- OVMS Hardware und vorkonfigueriert Server V.2
+- min. 150 freie Variablen pro Instanz (Symcon Unlimited empfohlen)
+- OVMS Hardware und entweder einen bereits vorkonfiguerierten Server V.2 oder eine Registrierung bei den o.g.
 
 ### 3. Software-Installation
 
@@ -28,7 +34,7 @@ Leider fehlen mir bei manchen Variablen die Übersetzung, schreibt mich gerne an
 ### 4. Einrichten der Instanzen in IP-Symcon
 
  Unter 'Instanz hinzufügen' kann das 'OVMS Native'-Modul mithilfe des Schnellfilters gefunden werden.  
-	- Weitere Informationen zum Hinzufügen von Instanzen in der [Dokumentation der Instanzen](https://www.symcon.de/service/dokumentation/konzepte/instanzen/#Instanz_hinzufügen)
+- Weitere Informationen zum Hinzufügen von Instanzen in der [Dokumentation der Instanzen](https://www.symcon.de/service/dokumentation/konzepte/instanzen/#Instanz_hinzufügen)
 
 __Konfigurationsseite__:
 
@@ -40,12 +46,12 @@ Passwort | Hier muss das Passwort des Servers eingetragen werden, den man in der
 Server | Hier muss der Servers eingetragen werden, den man in der OVMS Webui unter Config -> Server V2 (MP) ausgewählt hat.
 Hostnamen | optional: bei Auswahl eines eigenen Servers, diesen hier eintragen.
 Intervall | in sek. Gibt an, wie oft die Daten abgerufen werden.
-erstelle Variablen vom Typ Statusinformationen | Es werden variablen erstellt mit allen Metricen des typen status_
-erstelle Variablen vom Typ Fahrzeuginformationen | Es werden variablen erstellt mit allen Metricen des typen vehicles_
-erstelle Variablen vom Typ Reifeninformationen | Es werden variablen erstellt mit allen Metricen des typen tpms_
-erstelle Variablen vom Typ Ortung und GPS | Es werden variablen erstellt mit allen Metricen des typen location_
-erstelle Variablen vom Typ Ladeinformationen | Es werden variablen erstellt mit allen Metricen des typen charge_
-erstelle unbekannte Variablen, bsw. durch Firmwareupdates | Es werden variablen erstellt mit allen unbekannten oder neuen Metricen 
+erstelle Variablen vom Typ Statusinformationen | Es werden variablen erstellt mit allen Metriken des typen status_
+erstelle Variablen vom Typ Fahrzeuginformationen | Es werden variablen erstellt mit allen Metriken des typen vehicles_
+erstelle Variablen vom Typ Reifeninformationen | Es werden variablen erstellt mit allen Metriken des typen tpms_
+erstelle Variablen vom Typ Ortung und GPS | Es werden variablen erstellt mit allen Metriken des typen location_
+erstelle Variablen vom Typ Ladeinformationen | Es werden variablen erstellt mit allen Metriken des typen charge_
+erstelle unbekannte Variablen, bsw. durch Firmwareupdates | Es werden variablen erstellt mit allen unbekannten oder neuen Metriken 
 
 ### 5. Statusvariablen und Profile
 
@@ -53,7 +59,6 @@ Die Statusvariablen/Kategorien werden automatisch angelegt. Das Löschen einzeln
 
 Es gibt dabei verschiedene Typen der Statusvariablen, zum einen kann im Konfigurationfenster dieser Typ explizit de/aktiviert werden, zum anderen kann man mittels `OVMSNAT_GetData(int $InstanceID, string $Type);` alle Variablen innerhalb des Typs manuell abrufen.
 
-Manche Variablen können zudem mehrfach vorkommen, meistens weil die bereits in einem anderem Type zusätzlich vorhanden sind. Man kann OVMS zudem mitteilen, nicht alle Daten zu senden. Dazu lest euch bitte hier ein :https://github.com/openvehicles/Open-Vehicle-Monitoring-System-3/blob/master/docs/source/userguide/components.rst
 
 __Type: status__:
 
