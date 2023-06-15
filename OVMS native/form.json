@@ -16,7 +16,7 @@
         { 
             "type": "ValidationTextBox", 
             "name": "UserName", 
-            "caption": "Username." 
+            "caption": "Username" 
         },
         { 
             "type": "PasswordTextBox", 
@@ -44,7 +44,8 @@
             "type": "NumberSpinner",
             "name": "UpdateDataInterval",
             "minimum": 0,
-            "caption": "Intervall in sec. , 0 to deactive automatic"
+            "suffix": "sec.",
+            "caption": "Update intervall, 0 to deactive"
         },
         { 
             "type": "Label",
